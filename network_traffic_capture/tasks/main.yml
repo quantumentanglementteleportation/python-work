@@ -1,0 +1,13 @@
+---
+
+- name: Get current time
+  set_fact:
+    current_time: "{{lookup('pipe','date +\"%Y%m%d_%H%M"\')}}"
+
+- name: Run python script to capture network trace in junos device
+  script: python monitor.py "{{ansible_host}}" "{{ansible_user}}" "{{ansible_pass}}" "{{monitor_cmd}}" "{{startshell_run_timeout}}"
+  delegate_to: localhost
+
+- name: Fetch pcap file
+  script: python fetch_pcap.py "{{ansible_host}}" "{{ansible_user}}" "{{ansible_pass}}" "{{pcap_file}}" "{{local_path}}"
+  delegate_to: localhost

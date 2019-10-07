@@ -1,0 +1,11 @@
+---
+
+# "monitor traffic" command variables
+interface_name: "ge-1/0/0"
+traffic_count: 10
+startshell_run_timeout: 50  # in seconds 1(count)*5
+pcap_file: "/tmp/ge_{{current_time}}"
+
+monitor_cmd: "monitor traffic interface {{interface_name}} count {{traffic_count}} extensive write-file {{pcap_file}} no-resolve layer2-headers"
+
+local_path: "/var/tmp/"
