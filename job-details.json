@@ -1,0 +1,13 @@
+{
+    "job_info": [
+        {
+            "name": "python-api",
+            "parameters": [
+                {
+                    "user_input": "reached somewhere",
+                    "guest_host": "localhost"
+                }
+            ]
+        }
+    ]
+}
